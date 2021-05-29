@@ -1,3 +1,10 @@
+function createPersonalTemplate() {
+    let films = document.querySelector('.films__container');
+    let template = document.querySelector('.personal-template');
+    let clone = document.importNode(template.content, true);
+    films.append(clone);
+}
+
 function createMoviesFromTemplate() {
     let films = document.querySelector('.personal');
     let template = document.querySelector('.films-template');
