@@ -1,0 +1,78 @@
+body {
+    background: #212429;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo {
+    color: #DBC7AD;
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.logo .logo__text {
+    margin: 0;
+}
+
+.enter-form {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    border: 2px solid #FFFFFF;
+    height: 50px;
+    width: 300px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    background: #DBC7AD;
+    color: #FFFFFF;
+    outline: none;
+    cursor: pointer;
+}
+
+.enter-form__button {
+    margin-left: 10px;
+}
+
+.input {
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #DBC7AD;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.films {
+    position: absolute;
+    margin: 10vh 0 0 0;
+    color: #FFFFFF;
+}
+
+.film-content, .serial-content, .genre-films-content, .history-film-content {
+    height: 200px;
+    width: 250px;
+    background: #DBC7AD;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie__container, .serial__container, .genre-content__container, .history-films__container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 10px;
+}

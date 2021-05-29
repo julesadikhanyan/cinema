@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Фильмы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="fetch.js"></script>
+    <script src="print.js"></script>
+    <script src="templates.js"></script>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">
+        <p class="logo__text">FILMS</p>
+    </div>
+    <div class="enter-form">
+        <form>
+            <label>
+                <input class="enter-form__input input" placeholder="Enter ID...">
+            </label>
+        </form>
+        <button class="enter-form__button button" onclick="getRecommendations()">Получить рекомендации</button>
+    </div>
+</header>
+<main>
+    <section class="films">
+        <div class="films__container">
+            <div class="personal"></div>
+        </div>
+    </section>
+</main>
+<template class="films-template">
+    <section class="movies">
+        <h3 class="movie-header header">Фильмы</h3>
+        <div class="movie__container"></div>
+    </section>
+</template>
+<template class="serials-template">
+    <section class="serials">
+        <h3 class="serial-header header">Сериалы</h3>
+        <div class="serial__container"></div>
+    </section>
+</template>
+<template class="film-content-template">
+    <div class="film-content">
+        <p class="film-content__name"></p>
+        <p class="film-content__genre"></p>
+    </div>
+</template>
+<template class="serial-content-template">
+    <div class="serial-content">
+        <p class="serial-content__name"></p>
+        <p class="serial-content__genre"></p>
+    </div>
+</template>
+<template class="genre-template">
+    <section class="genres">
+        <h3 class="genres-header header">Подборка фильмов и сериалов по жанрам</h3>
+        <div class="genres__container"></div>
+    </section>
+</template>
+<template class="genre-content-template">
+    <div class="genre-content">
+        <h4 class="genre-content__header"></h4>
+        <div class="genre-content__container"></div>
+    </div>
+</template>
+<template class="genre-films-content-template">
+    <div class="genre-films-content">
+        <p class="genre-films-content__name"></p>
+        <p class="genre-films-content__type"></p>
+    </div>
+</template>
+<template class="history-films-template">
+    <section class="history-films">
+        <h3 class="history-films header">Просмотренные фильмы</h3>
+        <div class="history-films__container"></div>
+    </section>
+</template>
+<template class="history-film-content-template">
+    <section class="history-film-content">
+        <p class="history-film-content__name"></p>
+    </section>
+</template>
+</body>
+</html>
