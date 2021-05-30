@@ -12,27 +12,17 @@ function createMoviesFromTemplate() {
     films.append(clone);
 }
 
-function createFilmTemplate(key) {
+function createFilmTemplate(key, idNumber) {
     let films = document.querySelector('.movie__container');
     let template = document.querySelector('.film-content-template');
+    template.content.querySelector(".film-content").style.display = "flex";
+    if (idNumber > 5) {
+        template.content.querySelector('.film-content').classList.add("hidden-movie");
+        template.content.querySelector(".hidden-movie").style.display = "none";
+    }
     template.content.querySelector('.film-content').setAttribute('id', key);
     let clone = document.importNode(template.content, true);
     films.append(clone);
-}
-
-function createSerialsFromTemplate() {
-    let films = document.querySelector('.personal');
-    let template = document.querySelector('.serials-template');
-    let clone = document.importNode(template.content, true);
-    films.append(clone);
-}
-
-function createSerialTemplate(key) {
-    let serials = document.querySelector('.serial__container');
-    let template = document.querySelector('.serial-content-template');
-    template.content.querySelector('.serial-content').setAttribute('id', `${key}S`);
-    let clone = document.importNode(template.content, true);
-    serials.append(clone);
 }
 
 function createGenresFromTemplate() {

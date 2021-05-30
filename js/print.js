@@ -1,20 +1,12 @@
-async function printFilms(data) {
-    let countMovies = Object.keys(data.content.films).length;
-    let countSerials = Object.keys(data.content.serials).length;
-
+function printFilms(data) {
+    let countMovies = Object.keys(data.content).length;
+    let idNumber = 0;
     if (countMovies > 0) {
         createMoviesFromTemplate();
-        for(let key in data.content.films) {
-            createFilmTemplate(key);
-            printFilmInformation(data.content.films[key], key);
-        }
-    }
-
-    if (countSerials > 0) {
-        createSerialsFromTemplate();
-        for(let key in data.content.serials) {
-            createSerialTemplate(key);
-            printSerialInformation(data.content.serials[key], key);
+        for(let key in data.content) {
+            idNumber++;
+            createFilmTemplate(key, idNumber);
+            printFilmInformation(data.content[key], key);
         }
     }
 }
@@ -22,13 +14,9 @@ async function printFilms(data) {
 function printFilmInformation(film, id) {
     let filmContainer = document.getElementById(id);
     filmContainer.querySelector(".film-content__name").innerHTML = film.name;
-    filmContainer.querySelector(".film-content__genre").innerHTML = film.genre;
-}
-
-function printSerialInformation(serial, id) {
-    let serialContainer = document.getElementById(`${id}S`);
-    serialContainer.querySelector(".serial-content__name").innerHTML = serial.name;
-    serialContainer.querySelector(".serial-content__genre").innerHTML = serial.genre;
+    let genreString = film.genre.toString();
+    genreString = genreString.replaceAll(",", " ");
+    filmContainer.querySelector(".film-content__genre").innerHTML = genreString;
 }
 
 function printFilmsPerGenre(data) {
@@ -36,13 +24,9 @@ function printFilmsPerGenre(data) {
     if (countGenres > 0) {
         createGenresFromTemplate();
         for(let key in data.content) {
-            //console.log(key);
-            //console.log(data.content[key]);
             createGenreTemplate(key);
             for (let movie in data.content[key]) {
                 createTopGenreTemplate(key, movie);
-                console.log(data.content[key][movie]);
-                console.log(movie);
                 printFilmPerGenreInformation(data.content[key][movie], movie, key);
             }
         }
@@ -55,22 +39,32 @@ function printFilmPerGenreInformation(movie, id, key) {
     filmPerGenreContainer.querySelector(".genre-films-content__type").innerHTML = movie.type;
 }
 
-async function printHistory(data) {
+function printHistory(data) {
     let countHistory = Object.keys(data.content).length;
-    console.log(countHistory);
 
     if (countHistory > 0) {
         createHistoryFromTemplate();
         for(let key in data.content) {
-            console.log(key);
             createHistoryFilmTemplate(key);
-            await printHistoryFilmInformation(data.content[key], key);
+            printHistoryFilmInformation(data.content[key], key);
         }
     }
 }
 
-async function printHistoryFilmInformation(movie, key) {
+function printHistoryFilmInformation(movie, key) {
     let historyFilmContainer = document.getElementById(`${key}H`);
     historyFilmContainer.querySelector(".history-film-content__name").innerHTML = movie;
 }
 
+function AllMovies() {
+    let hiddenMovies = document.querySelectorAll(".hidden-movie");
+    for (let i = 0; i < hiddenMovies.length; i++) {
+        if (hiddenMovies[i].style.display === "none") {
+            hiddenMovies[i].style.display = "flex";
+            document.querySelector(".movie__button ").innerHTML = "Скрыть фильмы";
+        } else {
+            hiddenMovies[i].style.display = "none";
+            document.querySelector(".movie__button ").innerHTML = "Показать все фильмы и сериалы";
+        }
+    }
+}

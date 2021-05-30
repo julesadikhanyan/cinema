@@ -64,8 +64,9 @@ body {
     width: 90vw;
 }
 
-.film-content, .serial-content, .genre-films-content, .history-film-content {
+.film-content, .genre-films-content, .history-film-content {
     height: 200px;
+    max-width: 250px;
     background: #FFFFFF;
     border: 7px solid #DBC7AD;
     padding: 3px;
@@ -78,9 +79,10 @@ body {
     text-align: center;
 }
 
-.movie__container, .serial__container, .genre-content__container, .history-films__container {
+.movie__container, .genre-content__container, .history-films__container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
+    margin-bottom: 20px;
 }

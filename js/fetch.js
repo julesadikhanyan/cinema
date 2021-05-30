@@ -1,4 +1,4 @@
-const serverURL = "https://cs-labs-recomendation.herokuapp.com";
+const serverURL = "http://127.0.0.1:8000";
 const recommendationURL = `${serverURL}/user_recommendation`;
 const existURL = `${serverURL}/exist_user`;
 const genreURL = `${serverURL}/top_films_per_genre`;
@@ -9,6 +9,7 @@ async function fetchIsExist(ID) {
 
     if (response.status === 422) {
         alert("Некорректный ID");
+        document.querySelector(".enter-form__button").removeAttribute('disabled');
         throw new Error(`Status is ${response.status}`);
     }
     return response.json();
@@ -22,7 +23,7 @@ async function fetchRecommendations(ID) {
     return response.json().then((data) => {
         printFilms(data);
     }).catch((err) => {
-        console.log(err);
+        alert(`Ошибка: ${err} Перезагрузите страницу!`);
     });
 }
 
@@ -32,7 +33,7 @@ async function fetchGenre(ID) {
     return response.json().then((data) => {
         printFilmsPerGenre(data);
     }).catch((err) => {
-        console.log(err);
+        alert(`Ошибка: ${err} Перезагрузите страницу!`);
     });
 }
 
@@ -42,6 +43,6 @@ async function fetchHistory(ID) {
     return response.json().then((data) => {
         printHistory(data);
     }).catch((err) => {
-        console.log(err);
+        alert(`Ошибка: ${err} Перезагрузите страницу!`);
     });
 }

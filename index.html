@@ -5,10 +5,10 @@
     <title>Фильмы</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <script src="fetch.js"></script>
-    <script src="print.js"></script>
-    <script src="templates.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/fetch.js"></script>
+    <script src="js/print.js"></script>
+    <script src="js/templates.js"></script>
 </head>
 <body>
 <header class="navbar">
@@ -16,7 +16,7 @@
         <p class="logo__text">FILMS</p>
     </div>
     <div class="enter-form">
-        <form>
+        <form onsubmit="return false;">
             <label>
                 <input class="enter-form__input input" placeholder="Enter ID...">
             </label>
@@ -35,26 +35,15 @@
 </template>
 <template class="films-template">
     <section class="movies">
-        <h3 class="movie-header header">Рекомендованные фильмы</h3>
+        <h3 class="movie-header header">Рекомендованные фильмы и сериалы</h3>
         <div class="movie__container"></div>
-    </section>
-</template>
-<template class="serials-template">
-    <section class="serials">
-        <h3 class="serial-header header">Рекомендованные сериалы</h3>
-        <div class="serial__container"></div>
+        <button class="movie__button button" onclick="AllMovies()">Показать все фильмы и сериалы</button>
     </section>
 </template>
 <template class="film-content-template">
-    <div class="film-content">
+    <div class="film-content" style="display: flex">
         <p class="film-content__name"></p>
         <p class="film-content__genre"></p>
-    </div>
-</template>
-<template class="serial-content-template">
-    <div class="serial-content">
-        <p class="serial-content__name"></p>
-        <p class="serial-content__genre"></p>
     </div>
 </template>
 <template class="genre-template">
