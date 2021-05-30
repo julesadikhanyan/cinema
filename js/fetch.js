@@ -8,6 +8,7 @@ async function fetchIsExist(ID) {
     let response = await fetch(`${existURL}?user_id=${ID}`);
 
     if (response.status === 422) {
+        deleteLoadingTemplate();
         alert("Некорректный ID");
         document.querySelector(".enter-form__button").removeAttribute('disabled');
         throw new Error(`Status is ${response.status}`);

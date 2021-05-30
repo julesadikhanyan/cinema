@@ -63,3 +63,14 @@ function createHistoryFilmTemplate(key) {
     let clone = document.importNode(template.content, true);
     history.append(clone);
 }
+
+function createLoadingTemplate() {
+    let films = document.querySelector('.films__container');
+    let template = document.querySelector('.loading-template');
+    let clone = document.importNode(template.content, true);
+    films.append(clone);
+}
+
+function deleteLoadingTemplate() {
+    document.querySelector('.loading').remove();
+}
