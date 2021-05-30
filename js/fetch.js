@@ -22,7 +22,7 @@ async function fetchRecommendations(ID) {
     let response = await fetch(`${recommendationURL}?user_id=${ID}`);
 
     return response.json().then((data) => {
-        printFilms(data);
+        printFilms(data, ID);
     }).catch((err) => {
         alert(`Ошибка: ${err} Перезагрузите страницу!`);
     });

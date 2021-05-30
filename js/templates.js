@@ -5,11 +5,12 @@ function createPersonalTemplate() {
     films.append(clone);
 }
 
-function createMoviesFromTemplate() {
+function createMoviesFromTemplate(ID) {
     let films = document.querySelector('.personal');
     let template = document.querySelector('.films-template');
     let clone = document.importNode(template.content, true);
     films.append(clone);
+    document.querySelector(".movie-header").innerHTML = `Рекомендованный фильмы и сериалы для ID ${ID}`;
 }
 
 function createFilmTemplate(key, idNumber) {

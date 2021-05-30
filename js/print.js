@@ -1,8 +1,8 @@
-function printFilms(data) {
+function printFilms(data, ID) {
     let countMovies = Object.keys(data.content).length;
     let idNumber = 0;
     if (countMovies > 0) {
-        createMoviesFromTemplate();
+        createMoviesFromTemplate(ID);
         for(let key in data.content) {
             idNumber++;
             createFilmTemplate(key, idNumber);
